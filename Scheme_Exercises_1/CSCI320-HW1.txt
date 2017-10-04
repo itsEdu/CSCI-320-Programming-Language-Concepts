@@ -1,0 +1,25 @@
+A. Evaluate the following expressions:
+  1. (car '(P H W))			Answer: P
+  2. (cdr '(B K P H))			Answer: (K P H)
+  3. (car '((A B) (C D)))		Answer: (A B)
+  4. (cdr '((A B) (C D)))		Answer: ((C D))
+  5. (car (cdr '((A B) (C D))))		Answer: (C D)
+  6. (cdr (car '((A B) (C D))))		Answer: (B)
+  7. (cdr (car (cdr '((A B) (C D)))))	Answer: (D)
+  8. (car (cdr (car '((A B) (C D)))))	Answer: B
+
+B. Evaluate the following expressions:
+  1. (car (cdr (car (cdr '((A B) (C D) (E F))))))	Answer: D
+  2. (car (car (cdr (cdr '((A B) (C D) (E F))))))	Answer: E
+  3. (car (car (cdr '(cdr ((A B) (C D) (E F))))))	Answer: (A B)
+  4. (car (car '(cdr (cdr ((A B) (C D) (E F))))))	Answer: 
+  5. (car '(car (cdr (cdr ((A B) (C D) (E F))))))	Answer: car
+  6. '(car (car (cdr (cdr ((A B) (C D) (E F))))))	Answer: (car (car (cdr (cdr ((A B) (C D) (E F))))))
+
+C. Write sequences of cars and cdrs that will pick the return the symbol PEAR from the following expressions:
+  1. (APPLE ORANGE PEAR GRAPEFRUIT)		Answer: (car (cdr (cdr '(APPLE ORANGE PEAR GRAPEFRUIT))))
+  2. ((APPLE ORANGE) (PEAR GRAPEFRUIT))		Answer: (car (car (cdr '((APPLE ORANGE) (PEAR GRAPEFRUIT)))))
+  3. (((APPLE) (ORANGE) (PEAR) (GRAPEFRUIT)))	Answer: (car (car (cdr (cdr (car '(((APPLE) (ORANGE) (PEAR) (GRAPEFRUIT))))))))
+  4. (APPLE (ORANGE) ((PEAR) (((GRAPEFRUIT))))	Answer: (car (car (car (cdr (cdr '(APPLE (ORANGE) ((PEAR) (((GRAPEFRUIT))))))))))
+  5. ((((APPLE))) ((ORANGE)) (PEAR) GRAPEFRUIT)	Answer: (car (car (cdr (cdr '((((APPLE))) ((ORANGE)) (PEAR) GRAPEFRUIT)))))
+  6. ((((APPLE) ORANGE) PEAR) GRAPEFRUIT)	Answer: (car (cdr (car '((((APPLE) ORANGE) PEAR) GRAPEFRUIT))))

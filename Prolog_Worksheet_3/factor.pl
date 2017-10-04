@@ -1,0 +1,1 @@
+factor(A, B) :- (R is A mod B), (R == 0).

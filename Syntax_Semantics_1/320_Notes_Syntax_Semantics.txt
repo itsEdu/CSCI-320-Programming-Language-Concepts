@@ -1,0 +1,97 @@
+Terminal
+Non-terminal		<var>, S, A
+Production Rules	<stmt> -> <var> = const
+------------------------------------------------
+<program> -> <stmts>
+<stmts> -> <stmt> | <stmt>; <stnts>
+<stmt> -> <var> = <expr>
+<var> -> a | b | c | d
+<expr> -> <term> + <term> | <term> - <term>
+<term> -> <var> | const
+------------------------------------------------
+Goal: a = b + const
+
+Left-Derivation:
+<program> => <stmts>
+	  => <stmt>
+	  => <var> = <expr>
+	  => a = <expr>
+	  => a = <term> + <term>
+	  => a = <var> + <term>
+	  => a = b + <term>
+	  => a = b + const
+------------------------------------------------
+<G> -> <E>
+<E> -> <F> | <E> + <F>
+<F> -> <id> | <F> * <id>
+<id> -> X | Y | Z
+
+Goal: X + Y * Z
+
+Left-Derivation:
+<G> => <E>
+    => <E> + <F>
+    => <F> + <F>
+    => <id> + <F>
+    => X + <F>
+    => X + <F> * <id>
+    => X + <id> * <id>
+    => X + Y * <id>
+    => X + Y * Z
+
+Right-Derivation:
+<G> => <E>
+    => <E> + <F>
+    => <E> + <F> * <id>
+    => <E> + <F> * Z
+    => <E> + <id> * Z
+    => <E> + Y * Z
+    => <F> + Y * Z
+    => <id> + Y * Z
+    => X + Y * Z
+------------------------------------------------
+<stmt> -> <id> = <expr>
+<expr> -> <id> + <expr> | <id> * <expr> | (<expr>) | <id>
+<id> -> A | B | C
+
+Goal: A = B * (A + C)
+
+Left-Derivation:
+<stmt> => <id> = <expr>
+       => A = <expr>
+       => A = <id> * <expr>
+       => A = B * <expr>
+       => A = B * (<expr>)
+       => A = B * (<id> + <expr>)
+       => A = B * (A + <expr>)
+       => A = B * (A + <id>)
+       => A = B * (A + C)
+
+Goal: A = B * A + C
+
+Left-Derivation:
+<stmt> => <id> = <expr>
+       => A = <expr>
+       => A = <id> * <expr>
+       => A = B * <expr>
+       => A = B * <id> + <expr>
+       => A = B * A + <expr>
+       => A = B * A + <id>
+       => A = B * A + C
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
